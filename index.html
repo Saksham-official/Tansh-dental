@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tansh Dental - Professional Dental Services</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS styles -->
+    <style>
+        /* CSS variables for consistent color theme */
+        :root {
+            --primary-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-teal: #0d9488;
+            --soft-gray: #f8fafc;
+            --dark-gray: #334155;
+        }
+
+        /* Global smooth scroll behavior */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        /* Base body styles */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Gradient background for hero section and footer */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+        }
+
+        /* Hover effect for cards */
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Primary button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+
+        /* Floating animation for hero image */
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Testimonial card background */
+        .testimonial-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        /* Service icon background */
+        .service-icon {
+            background: linear-gradient(135deg, var(--accent-teal), #14b8a6);
+            color: rgb(255, 255, 255);
+        }
+
+        /* Stats counter styles */
+        .stats-counter {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Appointment form background */
+        .appointment-form {
+            background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Team card styles */
+        .team-card {
+            border-radius: 20px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pattern for the hero section background */
+        .hero-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-blue-100 pb-24">
+
+    <!-- ===== START: FUTURISTIC NAVIGATION BAR ===== -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 p-4">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 py-3 bg-black/10 backdrop-blur-lg border border-white/20 rounded-2xl md:rounded-full shadow-2xl">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/30">
+                        <i class="fas fa-tooth text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-black">Tansh Dental</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-white transition-colors font-medium">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-white transition-colors font-medium">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-white transition-colors font-medium">About</a>
+                    <a href="#team" class="text-gray-700 hover:text-white transition-colors font-medium">Team</a>
+                    <a href="#testimonials" class="text-gray-700 hover:text-white transition-colors font-medium">Reviews</a>
+                    <a href="#contact" class="text-gray-700 hover:text-white transition-colors font-medium">Contact us</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden hidden mt-4">
+                <div class="px-4 py-4 space-y-4 bg-black/20 backdrop-blur-lg rounded-xl">
+                    <a href="#home" class="block text-gray-200 hover:text-black">Home</a>
+                    <a href="#services" class="block text-gray-200 hover:text-black">Services</a>
+                    <a href="#about" class="block text-gray-200 hover:text-black">About</a>
+                    <a href="#team" class="block text-gray-200 hover:text-black">Team</a>
+                    <a href="#testimonials" class="block text-gray-200 hover:text-black">Reviews</a>
+                    <a href="#contact" class="block text-gray-200 hover:text-black">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- ===== END: FUTURISTIC NAVIGATION BAR ===== -->
+
+    <!-- ===== START: HERO SECTION ===== -->
+    <section id="home" class="gradient-bg hero-pattern min-h-screen flex items-center relative overflow-hidden pt-32">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-black">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        Your Perfect <span class="text-yellow-500">Smile</span> Starts Here
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-600 leading-relaxed">
+                        Experience exceptional dental care with our state-of-the-art technology and compassionate team. We're committed to helping you achieve optimal oral health and confidence.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-center">
+                            Contact Us
+                        </a>
+                        <a href="#services" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-center">
+                            Our Services
+                        </a>
+                         <a href="https://share.google/6cQV9o4J8CLshDUfX" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 text-center">
+                            Find Us
+                        </a>
+                    </div>
+                </div>
+                <div class="relative mt-16 lg:mt-0">
+                    <div class="floating-animation">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/29d210c2-92be-4125-98de-41388e0c4ff6.png" alt="Modern dental office interior" class="rounded-2xl shadow-2xl" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== END: HERO SECTION ===== -->
+
+    <!-- Other sections remain unchanged... -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="fade-in">
+                    <div class="stats-counter text-4xl font-bold mb-2" data-target="1">0</div>
+                    <p class="text-gray-600 font-medium">Years Experience</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter text-4xl font-bold mb-2" data-target="100">0</div>
+                    <p class="text-gray-600 font-medium">Happy Patients</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter text-4xl font-bold mb-2" data-target="2">0</div>
+                    <p class="text-gray-600 font-medium">Expert Dentists</p>
+                </div>
+                <div class="fade-in">
+                    <div class="stats-counter text-4xl font-bold mb-2" data-target="95">0</div>
+                    <p class="text-gray-600 font-medium">Success Rate %</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our Comprehensive Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We offer a full range of dental services using the latest technology and techniques to ensure your optimal oral health.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tooth text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">General Dentistry</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive dental care including cleanings, fillings, and preventive treatments to maintain your oral health.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Regular Cleanings</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Cavity Fillings</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Oral Examinations</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-smile text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Cosmetic Dentistry</h3>
+                    <p class="text-gray-600 mb-6">Transform your smile with our aesthetic treatments designed to enhance your confidence and appearance.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Teeth Whitening</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Veneers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Smile Makeovers</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-md text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Oral Surgery</h3>
+                    <p class="text-gray-600 mb-6">Advanced surgical procedures performed by our experienced oral surgeons in a comfortable environment.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Tooth Extractions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Dental Implants</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Wisdom Teeth Removal</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-child text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Pediatric Dentistry</h3>
+                    <p class="text-gray-600 mb-6">Specialized dental care for children in a fun, comfortable environment that helps build positive dental habits.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Children's Cleanings</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Fluoride Treatments</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Sealants</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-teeth text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Orthodontics</h3>
+                    <p class="text-gray-600 mb-6">Straighten your teeth and improve your bite with our modern orthodontic solutions.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Invisalign</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Traditional Braces</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Retainers</li>
+                    </ul>
+                </div>
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="service-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Emergency Care</h3>
+                    <p class="text-gray-600 mb-6">Immediate dental care when you need it most. We're here to help with urgent dental problems.</p>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Pain Relief</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> Broken Tooth Repair</li>
+                        <li class="flex items-center"><i class="fas fa-check text-teal-600 mr-2"></i> 24/7 Emergency Line</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="grid gap-4">
+                            <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1267.JPG" alt="Dentist consulting with a patient.">
+                            </div>
+                            <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1332.JPG" alt="Sterilized dental instruments.">
+                            </div>
+                             <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1234.JPG" alt="Professional team of dentists.">
+                            </div>
+                        </div>
+                        <div class="grid gap-4">
+                             <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1243.JPG" alt="Modern dental clinic waiting area.">
+                            </div>
+                            <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1369.JPG" alt="Advanced dental imaging technology.">
+                            </div>
+                        </div>
+                        <div class="grid gap-4">
+                            <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1152.JPG" alt="Happy patient with a bright smile.">
+                            </div>
+                            <div>
+                                <img class="h-auto max-w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300" src="pic/_Q2A1232.JPG" alt="Friendly receptionist at the front desk.">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">About Tansh Dental</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Tansh Dental has been committed to providing exceptional dental care to our community. Our state-of-the-art facility combines advanced technology with a warm, welcoming environment.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        We believe that every patient deserves personalized care tailored to their unique needs. Our team of experienced professionals is dedicated to helping you achieve and maintain optimal oral health while ensuring your comfort throughout every visit.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-award text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Award-Winning Care</h4>
+                                <p class="text-gray-600 text-sm">Recognized for excellence in patient care and community service.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-microscope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Advanced Technology</h4>
+                                <p class="text-gray-600 text-sm">Latest dental technology for precise and comfortable treatments.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Meet Our Expert Team</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our skilled professionals are committed to providing you with the highest quality dental care in a comfortable and friendly environment.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center">
+                <div class="team-card card-hover fade-in">
+                    <div class="p-8 text-center">
+                        <img src="pic/_Q2A1267.JPG" alt="Dr. Tanya Dua" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Tanya Dua</h3>
+                        <p class="text-blue-600 font-semibold mb-4">ENDODONTIST</p>
+                        <p class="text-gray-600 mb-6">Dr. Tanya, BDS, MDS (Endodontics), is a skilled specialist in root canal and restorative treatments, dedicated to delivering painless and precise dental care</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card card-hover fade-in">
+                    <div class="p-8 text-center">
+                        <img src="pic/_Q2A1332.JPG" alt="Dr. Shivam" class="w-32 h-32 rounded-full mx-auto mb-6 object-cover" />
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Dr. Shivam</h3>
+                        <p class="text-blue-600 font-semibold mb-4">DENTAL SURGEON</p>
+                        <p class="text-gray-600 mb-6">Dr. Shivam, BDS, is a skilled dental surgeon committed to providing comprehensive oral care with precision and compassion</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-600 transition-colors">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">What Our Patients Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Here's what our valued patients have to say about their experience at Tansh Dental.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">The team transformed my smile completely. The Invisalign treatment was so much more comfortable than I expected, and the results exceeded my expectations. I can't stop smiling now!</p>
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/010ca9c3-4375-4e6a-b46d-740bfdcf776c.png" alt="Headshot of satisfied patient Jennifer M." class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Shruti</h4>
+                            <p class="text-gray-600 text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">My daughter was terrified of dentists until we came here. They made the experience so fun and educational that my daughter actually looks forward to her dental appointments now!</p>
+                    <div class="flex items-center">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3dcae870-d23a-421c-9dd1-1227cc2759c2.png" alt="Headshot of happy parent Robert K." class="w-12 h-12 rounded-full mr-4" />
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ranjana goel</h4>
+                            <p class="text-gray-600 text-sm"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 text-lg">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-6 italic">I was very impressed by the professionalism and care provided by the dentist.</p>
+                    <div class="flex items-center">
+                         <div>
+                            <h4 class="font-semibold text-gray-800">Saksham</h4>
+                            <p class="text-gray-600 text-sm">Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Ready to start your journey to a healthier, more beautiful smile? Get in touch with us today.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div class="fade-in">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Visit Our Clinic</h3>
+                            <p class="text-gray-600">5k 77 Nit 5 Faridabad<br>Haryana 121001</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-phone text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Call Us</h3>
+                            <p class="text-gray-600">Phone: 8178806264<br>Emergency: 9953191597</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-clock text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Working Hours</h3>
+                            <div class="text-gray-600 space-y-1">
+                                <p>Monday to Sunday open</p>
+                                <p>Morning: 10:00 AM - 2:00 PM</p>
+                                <p>Evening: 5:00 PM - 8:30 PM</p>
+                                <p>Wednesday Off</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Email Us</h3>
+                            <p class="text-gray-600"> tanshdental@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ===== END: CONTACT SECTION ===== -->
+
+    <!-- ===== START: FOOTER ===== -->
+    <footer class="gradient-bg text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-tooth text-blue-600 text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold">Tansh Dental</span>
+                    </div>
+                    <p class="text-blue-100 mb-4">Your trusted partner for comprehensive dental care and beautiful smiles.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tanshdental?igsh=YjJjcHRtOHZpMnNp" class="text-blue-200 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><a href="#services" class="hover:text-white transition-colors">General Dentistry</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Cosmetic Dentistry</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Orthodontics</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Pediatric Care</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-blue-100">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors">Our Team</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Patient Reviews</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Insurance</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Payment Options</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3 text-blue-100">
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 5k 77 Nit 5 Faridabad</p>
+                        <p><i class="fas fa-phone mr-2"></i> 8178806264 / 9953191597</p>
+                        <p><i class="fas fa-envelope mr-2"></i> tanshdental@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-blue-400 mt-8 pt-8 text-center text-blue-100">
+                <p>© 2025 Tansh Dental. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <div class="mt-6 text-center text-blue-200 text-sm">
+                    <!-- ===== MODIFICATION START: UPDATED FOOTER TEXT ===== -->
+                    <p>
+                        Code, Canvas & Care by
+
+                        <a href="https://www.linkedin.com/in/saksham-goel-y00528/" class="font-semibold text-white hover:underline">Saksham Goel</a>.
+                    </p>
+                    <!-- ===== MODIFICATION END: UPDATED FOOTER TEXT ===== -->
+                    <p class="mt-1">
+                        Your brand deserves more than a template. Let’s build something unforgettable.
+                        <a href="https://www.instagram.com/sakshamg.06?igsh=MWN6YmRmZnRzYzlvbQ==" class="font-semibold text-white hover:underline">Get in touch!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ===== END: FOOTER ===== -->
+
+    <!-- ===== START: JAVASCRIPT ===== -->
+    <script>
+        // ===== MODIFICATION: WRAP ALL JS IN DOMCONTENTLOADED =====
+        // This ensures that the script runs only after the entire HTML document has been loaded and parsed.
+        // This prevents "Cannot read properties of null" errors.
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Mobile Menu Toggle ---
+            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                });
+            });
+
+            // --- Intersection Observer for Fade-in Animations ---
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // --- Stats Counter Animation ---
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 100;
+                const timer = setInterval(() => {
+                    current += increment;
+                    element.textContent = Math.floor(current);
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    }
+                }, 20);
+            }
+
+            const statsCounters = document.querySelectorAll('.stats-counter');
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.dataset.target);
+                        animateCounter(entry.target, target);
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            });
+
+            statsCounters.forEach(counter => {
+                statsObserver.observe(counter);
+            });
+
+            // --- Scroll-Dependent Button Visibility ---
+            const creditButton = document.getElementById('developer-credit');
+
+            const handleCreditButtonVisibility = () => {
+                // Add a check to ensure creditButton exists before using it
+                if (!creditButton) return;
+
+                if (window.innerWidth < 768) {
+                    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2000) {
+                        creditButton.classList.remove('hidden');
+                    } else {
+                        creditButton.classList.add('hidden');
+                    }
+                } else {
+                    creditButton.classList.remove('hidden');
+                }
+            };
+
+            window.addEventListener('scroll', handleCreditButtonVisibility);
+            window.addEventListener('resize', handleCreditButtonVisibility);
+            handleCreditButtonVisibility(); // Initial check on load
+        });
+    </script>
+    <!-- ===== END: JAVASCRIPT ===== -->
+    
+    <!-- ===== START: MINIMALIST DEVELOPER CREDIT ===== -->
+    <a href="https://www.linkedin.com/in/saksham-goel-y00528/" 
+       id="developer-credit"
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-4 left-4 w-12 h-12 flex items-center justify-center bg-black/10 backdrop-blur-lg border border-white/20 shadow-2xl rounded-full z-50 transition-transform hover:scale-110 hidden"
+       aria-label="Developer Portfolio">
+        <!-- SVG Icon representing code or development -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+    </a>
+    <!-- ===== END: MINIMALIST DEVELOPER CREDIT ===== -->
+
+</body>
+</html>
